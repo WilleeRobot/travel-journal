@@ -1,24 +1,25 @@
 import React from "react";
 
-const TravelCard = ({
-  title,
-  location,
-  maps,
-  startDate,
-  endDate,
-  description,
-  image,
-}) => {
+const TravelCard = ({ items }) => {
+  const {
+    title,
+    location,
+    googleMapsUrl,
+    startDate,
+    endDate,
+    description,
+    imageUrl,
+  } = items;
   return (
     <div className="travel-card">
       <div className="photo-container">
-        <img className="photo" src={image} alt="destination image" />
+        <img className="photo" src={imageUrl} alt="destination image" />
       </div>
       <div className="destination-content">
         <p>
           <img className="icons" src="../assets/pin.jpg" alt="pin-icon" />
           <span className="country">{location}</span>
-          <a className="maps-link" href={maps} target="_blank">
+          <a className="maps-link" href={googleMapsUrl} target="_blank">
             View on Google Maps
           </a>
         </p>

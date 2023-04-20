@@ -1,3 +1,4 @@
+import React from "react";
 import Header from "./Components/Header";
 import Divider from "./Components/Divider";
 import TravelCard from "./Components/TravelCard";
@@ -8,35 +9,15 @@ const App = () => {
     <div className="App">
       <Header />
       <div className="container">
-        {data.map((destination) => {
-          if (data.indexOf(destination) !== data.length - 1) {
+        {data.map((destination, index) => {
+          if (index !== data.length - 1) {
             return (
               <React.Fragment key={destination.id}>
-                <TravelCard
-                  title={destination.title}
-                  location={destination.location}
-                  maps={destination.googleMapsUrl}
-                  startDate={destination.startDate}
-                  endDate={destination.endDate}
-                  description={destination.description}
-                  image={destination.imageUrl}
-                />
+                <TravelCard items={destination} />
                 <Divider />
               </React.Fragment>
             );
-          } else
-            return (
-              <TravelCard
-                key={destination.id}
-                title={destination.title}
-                location={destination.location}
-                maps={destination.googleMapsUrl}
-                startDate={destination.startDate}
-                endDate={destination.endDate}
-                description={destination.description}
-                image={destination.imageUrl}
-              />
-            );
+          } else return <TravelCard key={destination.id} items={destination} />;
         })}
       </div>
     </div>
