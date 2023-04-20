@@ -9,16 +9,12 @@ const App = () => {
     <div className="App">
       <Header />
       <div className="container">
-        {data.map((destination, index) => {
-          if (index !== data.length - 1) {
-            return (
-              <React.Fragment key={destination.id}>
-                <TravelCard items={destination} />
-                <Divider />
-              </React.Fragment>
-            );
-          } else return <TravelCard key={destination.id} items={destination} />;
-        })}
+        {data.map((destination, index) => (
+          <React.Fragment key={destination.id}>
+            <TravelCard items={destination} />
+            {index !== data.length - 1 && <Divider />}
+          </React.Fragment>
+        ))}
       </div>
     </div>
   );
