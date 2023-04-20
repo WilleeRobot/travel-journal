@@ -10,19 +10,20 @@ const TravelCard = ({ items }) => {
     description,
     imageUrl,
   } = items;
+
   return (
     <div className="travel-card">
       <div className="photo-container">
         <img className="photo" src={imageUrl} alt="destination image" />
       </div>
       <div className="destination-content">
-        <p>
+        <div>
           <img className="icons" src="../assets/pin.jpg" alt="pin-icon" />
           <span className="country">{location}</span>
           <a className="maps-link" href={googleMapsUrl} target="_blank">
             View on Google Maps
           </a>
-        </p>
+        </div>
         <h2 className="destination-name">{title}</h2>
         <p className="travel-dates">{`${startDate} - ${endDate}`}</p>
         <p className="description">{description}</p>
